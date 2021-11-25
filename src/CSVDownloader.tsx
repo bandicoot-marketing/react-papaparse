@@ -47,14 +47,14 @@ export default class CSVDownloader extends React.Component<Props> {
 
     const navObj: any = window.navigator;
     if (navObj.msSaveBlob) {
-      csvURL = navObj.msSaveBlob(csvData, `${filename}.csv`);
+      csvURL = navObj.msSaveBlob(csvData, `${filename}.txt`);
     } else {
       csvURL = window.URL.createObjectURL(csvData);
     }
 
     const link = document.createElement('a');
     link.href = csvURL as string;
-    link.setAttribute('download', `${filename}.csv`);
+    link.setAttribute('download', `${filename}.txt`);
     link.click();
     link.remove();
   };
